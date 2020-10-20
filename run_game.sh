@@ -6,7 +6,9 @@ MAP="Oscar_Jonasson_labb"
 echo -n "$NAME"
 echo "s program"
 
-mkdir $MAP 
+
+mkdir $MAP
+
 
 cp *.java $MAP
 
