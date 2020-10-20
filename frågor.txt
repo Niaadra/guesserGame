@@ -1,0 +1,51 @@
+
+G - frågor:
+1:
+add - Vi använder oss av add för att säga git att dom sakerna man addar skall vara med i nästa commit,
+samt att vi lägger in de ändrade sakerna i staging area!
+
+commit - vi använder oss av commit när vi ska lägga till en kommentar till vår ändring som vi innan har addat
+samt att de ändringar som man har addat blir slutgilltliga och alla användare får tillgång till den!
+
+2: 
+Push - push är att vi laddar upp våra committade ändringar till sitt repository (i mitt fall på github)
+pull - pull är att vi laddar ner nya versioner, från TEX github
+
+3:
+status - status används när vi ska kolla om något behöver addas eller commitas!
+log - log använder vi oss av när vi vill få reda på vad som har hänt under hela projektet, dvs vi kan se alla våra 
+commit komentarer och det vi har addat!
+
+4:
+Man ska formulera sig enkelt och generellt, så det blir enkelt och förstå. TEX "added an constructor"
+
+
+VG - Fråga:
+Det finns RESET och REVERT!
+
+1.VAD GÖR DOM?:
+REVERT - Tar bort de lokala ändringarna och återställer en en tidigare verstion. Dvs om vi har gjort en commit så kan 
+vi ändrade den i efterhand med revert och då kommer det även stå i log att vi har revertat något!
+
+RESET - Resert flyttar branch pekaren. Så att master istället hamnar på en annan commit via commit id (4 första siffrona).
+
+2.NÄR SKA DOM ANVÄNDAS?:
+REVERT - Om man till exempel redan har pushat upp sina saker till repositoryt och några kanske redan har börjar arbetat
+med dom så är det snällare mot dom andra att att använda sig av revert, då revert hamnar i "git log" att man har reverttat något jämfört
+med reset där sakerna bara försvinner!
+
+RESET - reset bör användas när man arbetar privat då man kan råka första mycket om man råkar skriva fel commit-id,
+jag kan tänka mig att man kan använda det om man vill testa något nytt så lägger man sig på en ny branch för att testa och om man inte 
+är nöjd så kan man gå tillbaka! Används när man gör saker private!
+
+3.EXEMPEL PÅ HUR DOM ANVÄNDS:
+REVERT - Jag gjorde så att jag skapade 3 olika filer, så addade jag 1 i taget med "git add" och sedan commitade emellan med "git commit -m. 
+Efter det så loggade jag med "git log --oneline" och såg mina olika commits, samt att jag använde "ls" för att se mina filer innan. Sedan 
+använde jag "git revert *fyra första id siffror*" och gjorde sedan "git log", där var inget "borta" men det står i logen att jag hade revertat
+den sista filen! Samt att när jag sedan använde "ls" igen så var den filen borta då jag hade addat den innan och nu tog den bort den adden!
+
+RESET - jag gjorde så att jag skapde 3 olika filer, så addade jag de olika med "git add"
+sen commitade jag filen med "git commit -m "added file1"". Sedan skrev jag "git log --oneline" för att få commit-id
+detta använde jag sedan i kommandot "git reset *fyra första siffrorna på id*". Första gången jag skrev log innan jag använde reset
+så var MASTER i fil3, men efter jag använde reset på fil1 id och körde log så hamande jag
+MASTER på fil1 istället och om jag då körde "git status" såg man att fil2 och fil3 hade blivit "raderade" men att det gick och adda tillbaka!
